@@ -18,7 +18,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/pets")
+    fetch("https://care-keeper.herokuapp.com/pets")
       .then((response) => response.json())
       .then((allPets) => {
         setAllPets(allPets);
@@ -26,7 +26,7 @@ function App() {
   }, []);
 
   const handleDelete = (deletedPet) => {
-    fetch(`http://localhost:5000/pets/${deletedPet.id}`, {
+    fetch(`https://care-keeper.herokuapp.com/${deletedPet.id}`, {
       method: "Delete",
       headers: { "Content-Type": "application/json" },
     }).then(() => {
