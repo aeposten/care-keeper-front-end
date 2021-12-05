@@ -29,7 +29,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
       medications: false,
     });
     fetch("https://care-keeper.herokuapp.com/pets", {
-      mode: "no-cors",
+      mode: "cors",
       method: "Post",
       headers: {
         "Content-Type": "application/json",
