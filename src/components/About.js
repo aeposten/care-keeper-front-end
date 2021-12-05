@@ -9,10 +9,9 @@ const About = () => {
       <br></br>
       <p>
         Care Keeper is a top-rate application for pet-sitters, designed with the
-        necessities of pet care in mind. We have
-        years of experience hands-on in veterinary medicine, and understand the
-        importance of keeping the information for your clients organized and
-        simple to access.
+        necessities of pet care in mind. We have years of experience hands-on in
+        veterinary medicine, and understand the importance of keeping the
+        information for your clients organized and simple to access.
       </p>
     </AboutContainer>
   );
