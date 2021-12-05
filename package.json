@@ -23,7 +23,7 @@
     "build": "CI= react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "clean": "rm -rf public",
+    "clean": "rm -rf public"
   },
   "eslintConfig": {
     "extends": [
