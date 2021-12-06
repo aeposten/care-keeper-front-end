@@ -45,7 +45,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
       [e.target.name]: e.target.value,
     });
   };
-  const handleFormError = (errs, invalidateForm) => {
+  const handleFormError = (invalidateForm) => {
     let errs = {};
     this.refs.form.inputs.forEach((input) => {
       if (input.showRequired()) {
