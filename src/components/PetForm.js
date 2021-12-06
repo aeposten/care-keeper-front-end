@@ -54,34 +54,34 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           type="text"
           name="name"
           placeholder="Pet Name"
-          onChange={handleChange}
+          onChange={handleChange} required
         />
         <input
           type="text"
           name="image"
           placeholder="Image URL"
-          onChange={handleChange}
+          onChange={handleChange} required
         />
 
         <input
           type="text"
           name="species"
           placeholder="Pet Species"
-          onChange={handleChange}
+          onChange={handleChange} required
         />
 
         <input
           type="text"
           name="sex"
           placeholder="Pet Sex"
-          onChange={handleChange}
+          onChange={handleChange} required
         />
 
         <input
           type="text"
           name="feeding"
           placeholder="Diet Information"
-          onChange={handleChange}
+          onChange={handleChange} required
         />
 
         <input
