@@ -28,7 +28,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
       feeding: "",
       medications: false,
     });
-    fetch("https://care-keeper.herokuapp.com/pets", {
+    fetch("https://care-keeper-back-end.herokuapp.com/pets", {
       method: "Post",
       headers: {
         "Content-Type": "application/json",

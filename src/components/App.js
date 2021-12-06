@@ -18,7 +18,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetch("https://care-keeper.herokuapp.com/pets")
+    fetch("https://care-keeper-back-end.herokuapp.com/pets")
       .then((response) => response.json())
       .then((allPets) => {
         setAllPets(allPets);
@@ -26,7 +26,7 @@ function App() {
   }, []);
 
   const handleDelete = (deletedPet) => {
-    fetch(`https://care-keeper.herokuapp.com/pets/${deletedPet.id}`, {
+    fetch(`https://care-keeper-back-end.herokuapp.com/pets/${deletedPet.id}`, {
       method: "Delete",
       headers: { "Content-Type": "application/json" },
     }).then(() => {
