@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+
+
 const PetForm = ({ addPet, toggleVisibleForm }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -11,7 +13,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
   });
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     const newPet = {
       name: formData.name,
       image: formData.image,
@@ -45,38 +47,22 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
       [e.target.name]: e.target.value,
     });
   };
-  const handleFormError = (invalidateForm) => {
-    let errs = {};
-    this.refs.form.inputs.forEach((input) => {
-      if (input.showRequired()) {
-        errs[input.props.name] =
-          typeof input.props.validationError === "string"
-            ? input.props.validationError
-            : "This field is required";
-      }
-    });
-    invalidateForm(errs);
-  };
+
   return (
     <div className="pet-content">
       <h4 className="add-pet">Add New Pet</h4>
-      <form
-        onSubmit={handleSubmit}
-        className="pet-form"
-      >
+      <form onSubmit={handleSubmit} className="pet-form">
         <input
           type="text"
           name="name"
           placeholder="Pet Name"
           onChange={handleChange}
-          onFormError={handleFormError}
         />
         <input
           type="text"
           name="image"
           placeholder="Image URL"
           onChange={handleChange}
-          onFormError={handleFormError}
         />
 
         <input
@@ -84,7 +70,6 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           name="species"
           placeholder="Pet Species"
           onChange={handleChange}
-          onFormError={handleFormError}
         />
 
         <input
@@ -92,7 +77,6 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           name="sex"
           placeholder="Pet Sex"
           onChange={handleChange}
-          onFormError={handleFormError}
         />
 
         <input
@@ -100,7 +84,6 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           name="feeding"
           placeholder="Diet Information"
           onChange={handleChange}
-          onFormError={handleFormError}
         />
 
         <input
