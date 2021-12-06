@@ -51,7 +51,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
   return (
     <div className="pet-content">
       <h4 className="add-pet">Add New Pet</h4>
-      <form onSubmit={handleSubmit} className="pet-form">
+      <form onSubmit={handleSubmit(e)} className="pet-form">
         <input
           type="text"
           name="name"
@@ -95,7 +95,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
       </form>
       <button
         onClick={() => {
-          handleSubmit();
+          handleSubmit(e);
           toggleVisibleForm();
         }}
       >
