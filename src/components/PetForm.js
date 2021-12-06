@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-
-
 const PetForm = ({ addPet, toggleVisibleForm }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -51,7 +49,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
   return (
     <div className="pet-content">
       <h4 className="add-pet">Add New Pet</h4>
-      <form onSubmit={handleSubmit(e)} className="pet-form">
+      <form onSubmit={(e) => handleSubmit(e)} className="pet-form">
         <input
           type="text"
           name="name"
@@ -94,7 +92,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
         />
       </form>
       <button
-        onClick={() => {
+        onClick={(e) => {
           handleSubmit(e);
           toggleVisibleForm();
         }}
