@@ -4,7 +4,7 @@ const PetList = ({ allPets, search, handleDelete }) => {
   return (
     <ul className="pets">
       {allPets
-        .filter((pet) => pet.name.includes(search.toLowerCase()))
+        .filter((pet) => pet.name.toLowerCase().includes(search.toLowerCase()))
         .map((pet) => (
           <PetCard pet={pet} key={pet.id} handleDelete={handleDelete} />
         ))}
