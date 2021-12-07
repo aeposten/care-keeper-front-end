@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const PetForm = ({ addPet, toggleVisibleForm }) => {
+  const { register, handleSubmit, watch, errors } = useForm();
   const [formData, setFormData] = useState({
     name: "",
     image: "",
@@ -10,6 +12,8 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
     medications: false,
   });
 
+  
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const newPet = {
@@ -49,44 +53,44 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
   return (
     <div className="pet-content">
       <h4 className="add-pet">Add New Pet</h4>
-      <form onSubmit={(e) => handleSubmit(e)} className="pet-form" type="submit">
+      <form onSubmit={(e) => handleSubmit(e)} className="pet-form">
         <input
           type="text"
           name="name"
           placeholder="Pet Name"
-          onChange={handleChange}
-          required
+          ref={register({ required: true })}
+          onChange={handleChange} required
         />
         <input
           type="text"
           name="image"
           placeholder="Image URL"
-          onChange={handleChange}
-          required
+          ref={register({ required: true })}
+          onChange={handleChange} required
         />
 
         <input
           type="text"
           name="species"
           placeholder="Pet Species"
-          onChange={handleChange}
-          required
+          ref={register({ required: true })}
+          onChange={handleChange} required
         />
 
         <input
           type="text"
           name="sex"
           placeholder="Pet Sex"
-          onChange={handleChange}
-          required
+          ref={register({ required: true })}
+          onChange={handleChange} required
         />
 
         <input
           type="text"
           name="feeding"
           placeholder="Diet Information"
-          onChange={handleChange}
-          required
+          ref={register({ required: true })}
+          onChange={handleChange} required
         />
 
         <input
@@ -101,10 +105,12 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           handleSubmit(e);
           toggleVisibleForm();
         }}
-        type="submit"
       >
         Submit
       </button>
+      <br />
+        {errors.name && <span>This field is required</span>}
+        <br />
       </form>
     </div>
   );
