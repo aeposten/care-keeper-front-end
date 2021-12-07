@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const PetForm = ({ addPet, toggleVisibleForm }) => {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, watch, errors } = useForm();
   const [formData, setFormData] = useState({
     name: "",
     image: "",
