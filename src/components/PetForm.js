@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 
 const PetForm = ({ addPet, toggleVisibleForm }) => {
-  const { register, watch, errors } = useForm();
   const [formData, setFormData] = useState({
     name: "",
     image: "",
@@ -12,35 +10,46 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
     medications: false,
   });
 
-  
-  
+  const [errors, setErrors] = useState([]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newPet = {
-      name: formData.name,
-      image: formData.image,
-      species: formData.species,
-      sex: formData.sex,
-      feeding: formData.feeding,
-      medications: formData.medications,
-    };
-    setFormData({
-      name: "",
-      image: "",
-      species: "",
-      sex: "",
-      feeding: "",
-      medications: false,
-    });
-    fetch("https://care-keeper-back-end.herokuapp.com/pets", {
-      method: "Post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newPet),
-    })
-      .then((response) => response.json())
-      .then(addPet);
+
+    if (
+      formData.name.length > 0 &&
+      formData.image.length > 0 &&
+      formData.species.length > 0 &&
+      formData.sex.length > 0 &&
+      formData.feeding.length > 0
+    ) {
+      const newPet = {
+        name: formData.name,
+        image: formData.image,
+        species: formData.species,
+        sex: formData.sex,
+        feeding: formData.feeding,
+        medications: formData.medications,
+      };
+      setFormData({
+        name: "",
+        image: "",
+        species: "",
+        sex: "",
+        feeding: "",
+        medications: false,
+      });
+      fetch("https://care-keeper-back-end.herokuapp.com/pets", {
+        method: "Post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newPet),
+      })
+        .then((response) => response.json())
+        .then(addPet);
+    } else {
+      setErrors(["Field is required!"]);
+    }
   };
 
   const handleChange = (e) => {
@@ -58,39 +67,39 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           type="text"
           name="name"
           placeholder="Pet Name"
-          {...register( "name", { required: true })}
-          onChange={handleChange} required
+          onChange={handleChange}
+          required
         />
         <input
           type="text"
           name="image"
           placeholder="Image URL"
-          {...register("image",{ required: true })}
-          onChange={handleChange} required
+          onChange={handleChange}
+          required
         />
 
         <input
           type="text"
           name="species"
           placeholder="Pet Species"
-          {...register("species", { required: true })}
-          onChange={handleChange} required
+          onChange={handleChange}
+          required
         />
 
         <input
           type="text"
           name="sex"
           placeholder="Pet Sex"
-          {...register("sex", { required: true })}
-          onChange={handleChange} required
+          onChange={handleChange}
+          required
         />
 
         <input
           type="text"
           name="feeding"
           placeholder="Diet Information"
-          {...register("feeding", { required: true })}
-          onChange={handleChange} required
+          onChange={handleChange}
+          required
         />
 
         <input
@@ -100,17 +109,21 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           onChange={handleChange}
         />
 
-      <button
-        onClick={(e) => {
-          handleSubmit(e);
-          toggleVisibleForm();
-        }}
-      >
-        Submit
-      </button>
-      <br />
-        {errors && <span>This field is required</span>}
-        <br />
+        <button
+          onClick={(e) => {
+            handleSubmit(e);
+            toggleVisibleForm();
+          }}
+        >
+          Submit
+        </button>
+        {errors.length > 0
+          ? errors.map((error, index) => (
+              <p key={index} style={{ color: "red" }}>
+                {error}
+              </p>
+            ))
+          : null}
       </form>
     </div>
   );
