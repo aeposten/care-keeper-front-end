@@ -119,9 +119,9 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
         </button>
         {errors.length > 0
           ? errors.map((error, index) => (
-              <p key={index} style={{ color: "red" }}>
+             alert( <p key={index} style={{ color: "red" }}>
                 {error}
-              </p>
+              </p>)
             ))
           : null}
       </form>
