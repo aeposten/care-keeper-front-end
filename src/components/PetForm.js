@@ -10,6 +10,8 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
     medications: false,
   });
 
+  const validateInput = (e, inputName, inputValue) => {};
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const newPet = {
@@ -54,34 +56,39 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           type="text"
           name="name"
           placeholder="Pet Name"
-          onChange={handleChange} required
+          onChange={handleChange}
+          required
         />
         <input
           type="text"
           name="image"
           placeholder="Image URL"
-          onChange={handleChange} required
+          onChange={handleChange}
+          required
         />
 
         <input
           type="text"
           name="species"
           placeholder="Pet Species"
-          onChange={handleChange} required
+          onChange={handleChange}
+          required
         />
 
         <input
           type="text"
           name="sex"
           placeholder="Pet Sex"
-          onChange={handleChange} required
+          onChange={handleChange}
+          required
         />
 
         <input
           type="text"
           name="feeding"
           placeholder="Diet Information"
-          onChange={handleChange} required
+          onChange={handleChange}
+          required
         />
 
         <input
@@ -96,6 +103,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           handleSubmit(e);
           toggleVisibleForm();
         }}
+        type="submit"
       >
         Submit
       </button>
