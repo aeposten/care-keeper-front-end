@@ -48,7 +48,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
         .then((response) => response.json())
         .then(addPet);
     } else {
-      setErrors(["Field is required!"]);
+      setErrors(console.log("Errors!"));
     }
   };
 
@@ -108,21 +108,23 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           placeholder="Medications"
           onChange={handleChange}
         />
-    {errors.length > 0
-      ? errors.map((error, index) => (
-          <p key={index} style={{ color: "red" }}>
-            {error}
-          </p>
-        ))
-      : null}
+
         <button
           onClick={(e) => {
             handleSubmit(e);
-            toggleVisibleForm();
           }}
         >
           Submit
         </button>
+
+        <button
+          onClick={(e) => {
+            toggleVisibleForm();
+          }}
+        >
+          Exit
+        </button>
+        
       </form>
     </div>
   );
