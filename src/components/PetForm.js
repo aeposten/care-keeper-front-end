@@ -109,7 +109,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
         Submit
       </button>
       <br />
-        {errors.name && <span>This field is required</span>}
+        {errors && <span>This field is required</span>}
         <br />
       </form>
     </div>
