@@ -108,7 +108,13 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           placeholder="Medications"
           onChange={handleChange}
         />
-
+    {errors.length > 0
+      ? errors.map((error, index) => (
+          <p key={index} style={{ color: "red" }}>
+            {error}
+          </p>
+        ))
+      : null}
         <button
           onClick={(e) => {
             handleSubmit(e);
@@ -117,7 +123,6 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
         >
           Submit
         </button>
-        {errors.length > 0 ? console.log("Errors!") : null}
       </form>
     </div>
   );
