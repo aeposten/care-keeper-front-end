@@ -117,13 +117,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
         >
           Submit
         </button>
-        {errors.length > 0
-          ? alert(
-              <p style={{ color: "red" }}>
-                Input is required.
-              </p>
-            )
-          : null}
+        {errors.length > 0 ? console.log("Errors!") : null}
       </form>
     </div>
   );
