@@ -119,8 +119,8 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
         </button>
         {errors.length > 0
           ? alert(
-              <p key={index} style={{ color: "red" }}>
-                {error}
+              <p style={{ color: "red" }}>
+                Input is required.
               </p>
             )
           : null}
