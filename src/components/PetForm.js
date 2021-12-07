@@ -10,8 +10,6 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
     medications: false,
   });
 
-  const validateInput = (e, inputName, inputValue) => {};
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const newPet = {
