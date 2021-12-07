@@ -58,14 +58,14 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           type="text"
           name="name"
           placeholder="Pet Name"
-          ref={...register( "name", { required: true })}
+          {...register( "name", { required: true })}
           onChange={handleChange} required
         />
         <input
           type="text"
           name="image"
           placeholder="Image URL"
-          ref={...register("image",{ required: true })}
+          {...register("image",{ required: true })}
           onChange={handleChange} required
         />
 
@@ -73,7 +73,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           type="text"
           name="species"
           placeholder="Pet Species"
-          ref={...register("species", { required: true })}
+          {...register("species", { required: true })}
           onChange={handleChange} required
         />
 
@@ -81,7 +81,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           type="text"
           name="sex"
           placeholder="Pet Sex"
-          ref={...register("sex", { required: true })}
+          {...register("sex", { required: true })}
           onChange={handleChange} required
         />
 
@@ -89,7 +89,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           type="text"
           name="feeding"
           placeholder="Diet Information"
-          ref={...register("feeding", { required: true })}
+          {...register("feeding", { required: true })}
           onChange={handleChange} required
         />
 
