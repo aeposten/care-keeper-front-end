@@ -109,7 +109,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           placeholder="Medications"
           onChange={handleChange}
         />
-
+        <p>
         <button
           onClick={(e) => {
             handleSubmit(e);
@@ -125,7 +125,7 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
         >
           Exit
         </button>
-        
+        </p>
       </form>
     </div>
   );
