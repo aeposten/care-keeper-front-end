@@ -47,8 +47,9 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
       })
         .then((response) => response.json())
         .then(addPet);
+        toggleVisibleForm();
     } else {
-      setErrors(console.log("Errors!"));
+     alert("This field is required!")
     }
   };
 
