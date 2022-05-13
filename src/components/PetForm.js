@@ -7,7 +7,6 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
     species: "",
     sex: "",
     feeding: "",
-    medications: false,
   });
 
   const [errors, setErrors] = useState([]);
@@ -28,7 +27,6 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
         species: formData.species,
         sex: formData.sex,
         feeding: formData.feeding,
-        medications: formData.medications,
       };
       setFormData({
         name: "",
@@ -36,7 +34,6 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
         species: "",
         sex: "",
         feeding: "",
-        medications: false,
       });
       fetch("https://care-keeper-back-end.herokuapp.com/pets", {
         method: "Post",
@@ -101,13 +98,6 @@ const PetForm = ({ addPet, toggleVisibleForm }) => {
           placeholder="Diet Information"
           onChange={handleChange}
           required
-        />
-
-        <input
-          type="text"
-          name="medications"
-          placeholder="Medications"
-          onChange={handleChange}
         />
         <p>
         <button
